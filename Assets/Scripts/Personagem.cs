@@ -4,6 +4,8 @@ using System.Numerics;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
+using Quaternion = UnityEngine.Quaternion;
 
 public class Personagem : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class Personagem : MonoBehaviour
     private Vector2 horizontalMovement; // Talvez eu combine isso com directionLR
     private float jumpInput;
     private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,11 @@ public class Personagem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
+
+            // Faz ele parar de rodar
+            rb.angularVelocity = 0f;
+            // Alinha o personagem com o eixo y
+            transform.rotation = Quaternion.identity;
         }
     }
 }
