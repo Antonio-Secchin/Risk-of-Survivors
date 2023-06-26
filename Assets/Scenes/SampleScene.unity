@@ -855,8 +855,13 @@ MonoBehaviour:
   speed: 1000
   jumpSpeed: 1500
   nextWaypointDistance: 3
-  jumpNodeHeightRequirement: 0.3
+  jumpNodeHeightRequirement: 0.5
   jumpCheckOffset: 0.1
+  boxSize: {x: 1.3, y: 0.5, z: 0}
+  maxDistGround: 0.3
+  Ground:
+    serializedVersion: 2
+    m_Bits: 64
   followEnabled: 1
   jumpEnabled: 1
   directionLookEnabled: 1
@@ -944,7 +949,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

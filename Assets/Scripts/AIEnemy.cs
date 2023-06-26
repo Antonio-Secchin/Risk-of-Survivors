@@ -17,6 +17,9 @@ public class EnemyAI : MonoBehaviour
     public float jumpNodeHeightRequirement = 0.8f;
     //public float jumpModifier = 0.3f;
     public float jumpCheckOffset = 0.1f;
+    public Vector3 boxSize;
+    public float maxDistGround;
+    public LayerMask Ground;
 
     [Header("Custom Behavior")]
     public bool followEnabled = true;
@@ -31,7 +34,6 @@ public class EnemyAI : MonoBehaviour
     private Path path;
     private bool isAtacking = false;
     private int currentWaypoint = 0;
-    RaycastHit2D isGrounded;
     Seeker seeker;
     Rigidbody2D rb;
 
@@ -47,24 +49,25 @@ public class EnemyAI : MonoBehaviour
     {
         if (TargetInDistance() && followEnabled)
         {
-            PathFollow();
-        }
-    }
-
-    private void UpdatePath()
-    {
-        if (followEnabled && TargetInDistance() && seeker.IsDone())
-        {
             animator.SetFloat("Speed", 1);
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
+            PathFollow();
         }
         else
         {
             animator.SetFloat("Speed", 0);
-            if (isGrounded)
+            if (IsGrounded())
             {
                 animator.SetFloat("JumpSpeed", 0);
             }
+
+        }
+    }
+
+        private void UpdatePath()
+    {
+        if (followEnabled && TargetInDistance() && seeker.IsDone())
+        {
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
     }
 
@@ -84,47 +87,54 @@ public class EnemyAI : MonoBehaviour
 
         // See if colliding with anything
         Vector3 startOffset = transform.position - new Vector3(0f, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset);
-        isGrounded = Physics2D.Raycast(startOffset, -Vector3.up, 0.10f);
 
         // Direction Calculation
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
+        //is jumping
+        if (!IsGrounded())
+        {
+            force.y = 0;
+            //Esse addforce eh duplicado, mas gostei mais da movimentação dele assim, ficou mais fluida durante o pulo
+            rb.AddForce(force);
+        }
+        else if (animator.GetFloat("JumpSpeed") == 1)
+        {
+            animator.SetFloat("JumpSpeed", 0);
+        }
+
+
         //Attack the enemy
-        if (attackEnable && isGrounded)
+        if (attackEnable && IsGrounded())
         {
             if(Vector2.Distance(transform.position, target.transform.position) <= attackRange)
             {
                 animator.SetFloat("Distance", 1);
-                force = new Vector2(0,0);
                 isAtacking = true;
             }
             else if(animator.GetFloat("Distance") == 1)
             {
                 animator.SetFloat("Distance", 0);
-                force = direction * speed * Time.deltaTime;
                 isAtacking = false;
             }
         }
-            // Jump
-            if (jumpEnabled && isGrounded && !isAtacking)
+        // Jump
+        if (jumpEnabled && IsGrounded() && !isAtacking)
         {
             if (direction.y > jumpNodeHeightRequirement)
             {
                 animator.SetFloat("JumpSpeed", 1);
                 rb.AddForce(Vector2.up * jumpSpeed);
             }
-            else if(animator.GetFloat("JumpSpeed")==1)
-            {
-                animator.SetFloat("JumpSpeed", 0);
-                animator.SetFloat("Speed", 1);
-            }
         }
 
         // Movement
-        rb.AddForce(force);
 
-        if (!isGrounded) force.y = 0;
+        if (isAtacking)
+        {
+            force = new Vector2(0, 0);
+        }
         rb.AddForce(force);
 
         // Next Waypoint
@@ -146,11 +156,6 @@ public class EnemyAI : MonoBehaviour
                 transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
         }
-        if (isGrounded && animator.GetFloat("JumpSpeed") == 1)
-        {
-            animator.SetFloat("JumpSpeed", 0);
-
-        }
     }
 
     private bool TargetInDistance()
@@ -165,5 +170,22 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+
+    private bool IsGrounded()
+    {
+        Vector2 aux = transform.position;
+        aux.y = aux.y - 0.5f;
+        if (Physics2D.BoxCast(aux, boxSize, 0, -transform.up, maxDistGround, Ground))
+            return true;
+        return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 aux = transform.position;
+        aux.y = aux.y - 0.5f;
+        Gizmos.DrawCube(aux - transform.up * maxDistGround, boxSize);
     }
 }
