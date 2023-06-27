@@ -32,7 +32,6 @@ public class EnemyAI : MonoBehaviour
     public Animator animator;
 
     private Path path;
-    private bool isAtacking = false;
     private int currentWaypoint = 0;
     Seeker seeker;
     Rigidbody2D rb;
@@ -47,6 +46,10 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(animator.GetFloat("Distance") == 1)
+        {
+            return;
+        }
         if (TargetInDistance() && followEnabled)
         {
             animator.SetFloat("Speed", 1);
@@ -111,16 +114,14 @@ public class EnemyAI : MonoBehaviour
             if(Vector2.Distance(transform.position, target.transform.position) <= attackRange)
             {
                 animator.SetFloat("Distance", 1);
-                isAtacking = true;
             }
             else if(animator.GetFloat("Distance") == 1)
             {
                 animator.SetFloat("Distance", 0);
-                isAtacking = false;
             }
         }
         // Jump
-        if (jumpEnabled && IsGrounded() && !isAtacking)
+        if (jumpEnabled && IsGrounded())
         {
             if (direction.y > jumpNodeHeightRequirement)
             {
@@ -130,11 +131,6 @@ public class EnemyAI : MonoBehaviour
         }
 
         // Movement
-
-        if (isAtacking)
-        {
-            force = new Vector2(0, 0);
-        }
         rb.AddForce(force);
 
         // Next Waypoint
@@ -187,5 +183,10 @@ public class EnemyAI : MonoBehaviour
         Vector3 aux = transform.position;
         aux.y = aux.y - 0.5f;
         Gizmos.DrawCube(aux - transform.up * maxDistGround, boxSize);
+    }
+
+    public void StopAtack()
+    {
+        animator.SetFloat("Distance", 0);
     }
 }
