@@ -91,15 +91,18 @@ public class Personagem : MonoBehaviour
     }
 
     private void Pulo () {
-        
         // Não dá para pular, nesse caso.
-        if (!IsGrounded() && pulosExtras <= 0)
+        if (!IsGrounded() && pulosExtras <= 0) {
+            Debug.Log("Não está no chão e não tem pulos extras");
             return;
+        }
 
         if (!IsGrounded()) {
             pulosExtras--;
+            Debug.Log("não está no chão");
         }
         else{
+            Debug.Log("está no chão");
             animator.SetBool("Jump", true);
             pulosExtras = 1;
         }
