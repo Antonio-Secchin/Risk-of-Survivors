@@ -52,6 +52,9 @@ public class Personagem : MonoBehaviour
         // pediuPular é false até o jogador apertar para pular.
         if (pediuPular == false) 
             pediuPular = Input.GetButtonDown("Jump");
+
+        // Seta a yVelocity no animador
+        animator.SetFloat("yVelocity", rb.velocity.y);
     }
 
     // FixedUpdate é chamado toda vez que a engine de física rodar. Como não é todo frame, melhor receber os inputs muito curtos no Update.
@@ -83,6 +86,8 @@ public class Personagem : MonoBehaviour
             Pulo();
         }
 
+        animator.SetBool("Jump", !IsGrounded());
+
     }
 
     private bool IsGrounded() {
@@ -93,16 +98,14 @@ public class Personagem : MonoBehaviour
     private void Pulo () {
         // Não dá para pular, nesse caso.
         if (!IsGrounded() && pulosExtras <= 0) {
-            Debug.Log("Não está no chão e não tem pulos extras");
             return;
         }
 
         if (!IsGrounded()) {
+            //animator.SetBool("JetPack", true);
             pulosExtras--;
-            Debug.Log("não está no chão");
         }
         else{
-            Debug.Log("está no chão");
             animator.SetBool("Jump", true);
             pulosExtras = 1;
         }
