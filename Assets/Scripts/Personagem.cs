@@ -17,12 +17,13 @@ public class Personagem : MonoBehaviour
 
     #region Variáveis correr
 
-    public float moveSpeed;
-    public float jumpSpeed;
-    public float aceleracao;
-    public float desaceleracao;
-    [SerializeField] float velPower; // [SerializeField] == apareça no inspector, mesmo se for private
-    public float pulosExtras;
+    public float moveSpeed = 20.0f;
+    public float jumpSpeed = 15.0f;
+    public float aceleracao = 1.0f;
+    public float desaceleracao = 1.0f;
+    [SerializeField] float velPower = 2; // [SerializeField] == apareça no inspector, mesmo se for private
+    public int pulosExtras = 1;
+    public int pulosAtuais = 1;
 
     #endregion
 
@@ -32,17 +33,6 @@ public class Personagem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        #region regulação de movimento
-
-        moveSpeed = 20.0f;
-        jumpSpeed = 23.0f;
-        aceleracao = 1.0f;
-        desaceleracao = 1.0f;
-        velPower = 2;
-        pulosExtras = 1;
-
-        #endregion
-
         rb= GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
     }
@@ -86,7 +76,14 @@ public class Personagem : MonoBehaviour
             Pulo();
         }
 
-        animator.SetBool("Jump", !IsGrounded());
+        if (IsGrounded()) {
+            if (pulosAtuais <= 0) {
+                pulosAtuais = pulosExtras;
+            }
+            animator.SetBool("Jump", false);
+        }
+        else
+            animator.SetBool("Jump", true);
 
     }
 
@@ -97,17 +94,17 @@ public class Personagem : MonoBehaviour
 
     private void Pulo () {
         // Não dá para pular, nesse caso.
-        if (!IsGrounded() && pulosExtras <= 0) {
+        if (!IsGrounded() && pulosAtuais <= 0) {
             return;
         }
 
         if (!IsGrounded()) {
             //animator.SetBool("JetPack", true);
-            pulosExtras--;
+            pulosAtuais--;
         }
         else{
             animator.SetBool("Jump", true);
-            pulosExtras = 1;
+            pulosAtuais = 1;
         }
 
         rb.AddForce(transform.up * jumpSpeed + new Vector3(0, -rb.velocity.y, 0), ForceMode2D.Impulse);
