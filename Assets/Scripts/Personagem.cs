@@ -17,7 +17,7 @@ public class Personagem : MonoBehaviour
 
     #region Variáveis correr
 
-    public float moveSpeed = 20.0f;
+    public float moveSpeed = 15.0f;
     public float jumpSpeed = 15.0f;
     public float aceleracao = 1.0f;
     public float desaceleracao = 1.0f;
