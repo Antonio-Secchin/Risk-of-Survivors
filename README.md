@@ -11,6 +11,12 @@ Risk-of-Survivors é um platformer 2D com elementos de roguelike. O jogador é c
 
 ## Configuração para Desenvolvimento
 
+Windows:
 
+Para criar o ambiente de desenvolvimento primeiro acesse o [site da Unity](https://unity.com/pt/download). Clique em *"
+Baixar para Windows"* 
+![Onde Instalar o Unity Hub](/Imagens/Baixar_para_Windows)
+Em seguida será instalado o Setup do Unity Hub, execute-o assim que concluir o download.
+Siga os passos do Setup para instalar o *Unity Hub*
 ## Histórico de lançamentos
 
