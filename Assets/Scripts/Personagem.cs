@@ -46,7 +46,7 @@ public class Personagem : MonoBehaviour
         
         // Desse jeito só pode ser pedido um ataque até FixedUpdate rodar.
         if (pediuAtacar == false) 
-            pediuAtacar = Input.GetKey("j");
+            pediuAtacar = Input.GetKeyDown("j");
 
         // Seta a yVelocity no animador
         animator.SetFloat("yVelocity", rb.velocity.y);
@@ -82,8 +82,8 @@ public class Personagem : MonoBehaviour
         }
 
         if (pediuAtacar) {
-            pediuAtacar = false;    
             Ataque();
+            pediuAtacar = false;    
         }
 
         if (IsGrounded()) {

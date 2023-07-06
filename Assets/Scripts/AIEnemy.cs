@@ -99,7 +99,7 @@ public class EnemyAI : MonoBehaviour
         if (!IsGrounded())
         {
             force.y = 0;
-            //Esse addforce eh duplicado, mas gostei mais da movimentação dele assim, ficou mais fluida durante o pulo
+            //Esse addforce eh duplicado, mas gostei mais da movimentaï¿½ï¿½o dele assim, ficou mais fluida durante o pulo
             rb.AddForce(force);
         }
         else if (animator.GetFloat("JumpSpeed") == 1)
