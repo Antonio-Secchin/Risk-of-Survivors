@@ -46,7 +46,7 @@ public class Personagem : MonoBehaviour
         
         // Desse jeito só pode ser pedido um ataque até FixedUpdate rodar.
         if (pediuAtacar == false) 
-            pediuAtacar = Input.GetButtonDown("j");
+            pediuAtacar = Input.GetKey("j");
 
         // Seta a yVelocity no animador
         animator.SetFloat("yVelocity", rb.velocity.y);
@@ -103,7 +103,7 @@ public class Personagem : MonoBehaviour
     }
 
     private void Ataque () {
-        
+        animator.SetTrigger("Attack");
     }
 
     private void Pulo () {
