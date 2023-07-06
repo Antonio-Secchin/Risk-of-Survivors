@@ -27,10 +27,11 @@ public class Personagem : MonoBehaviour
 
     #endregion
 
+    bool pediuAtacar = false;
     bool pediuPular = false;
     float moveInput = 0;
 
-    // Start is called before the first frame update
+    // Start é chamada antes da primeira update de frame
     void Start()
     {
         rb= GetComponent<Rigidbody2D>();
@@ -39,9 +40,13 @@ public class Personagem : MonoBehaviour
 
     // Update é chamado continuamente
     void Update () {
-        // pediuPular é false até o jogador apertar para pular.
+        // Desse jeito só pode ser pedido um pulo até FixedUpdate rodar.
         if (pediuPular == false) 
             pediuPular = Input.GetButtonDown("Jump");
+        
+        // Desse jeito só pode ser pedido um ataque até FixedUpdate rodar.
+        if (pediuAtacar == false) 
+            pediuAtacar = Input.GetButtonDown("j");
 
         // Seta a yVelocity no animador
         animator.SetFloat("yVelocity", rb.velocity.y);
@@ -76,6 +81,11 @@ public class Personagem : MonoBehaviour
             Pulo();
         }
 
+        if (pediuAtacar) {
+            pediuAtacar = false;    
+            Ataque();
+        }
+
         if (IsGrounded()) {
             if (pulosAtuais <= 0) {
                 pulosAtuais = pulosExtras;
@@ -90,6 +100,10 @@ public class Personagem : MonoBehaviour
     private bool IsGrounded() {
         // Isso cria uma caixa do tamanho da hitbox, mas 0.1f abaixo dela. Checa se isso colide com algo que tenha o layer chaoPulavel, se sim retorna true.
         return Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0f, Vector2.down, .1f, chaoPulavel);
+    }
+
+    private void Ataque () {
+        
     }
 
     private void Pulo () {
