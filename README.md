@@ -21,13 +21,17 @@ Em seguida será instalado o Setup do Unity Hub, execute-o assim que concluir o 
 Siga os passos do Setup para instalar o *Unity Hub*.
 
 
-Ao abrir o UnityHub, instale a versão da Unity: *2022.3.0f1*.
+Ao abrir o UnityHub, instale a versão da *Unity*: *2022.3.0f1*.
 
 Após instalar escolha um local para clonar o repositório e utilize:
 
 ```sh
 git clone git@github.com:Antonio-Secchin/Risk-of-Survivors.git
 ```
+Depois, com o *Unity Hub* aberto, clique em ***Open*** e selecione a pasta do projeto.
+
+Se tudo der certo, aparecerá o projeto na aba ***Projects*** do *Unity Hub*. Então é só executá-lo.
+
 
 ## Histórico de lançamentos
 
