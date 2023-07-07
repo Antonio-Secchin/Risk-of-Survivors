@@ -21,7 +21,7 @@ Em seguida será instalado o Setup do Unity Hub, execute-o assim que concluir o 
 Siga os passos do Setup para instalar o *Unity Hub*.
 
 
-Ao abrir o UnityHub, instale a versão da *Unity*: *2022.3.0f1*.
+Ao abrir o UnityHub, instale a versão da *Unity*: *2022.3.0f1*. Caso tenha dificuldade para criar a conta e conseguir a licensa veja o [vídeo]([https://unity.com/pt/download](https://www.youtube.com/watch?v=weKsU91lKto)).
 
 Após instalar escolha um local para clonar o repositório e utilize:
 
@@ -34,4 +34,15 @@ Se tudo der certo, aparecerá o projeto na aba ***Projects*** do *Unity Hub*. En
 
 
 ## Histórico de lançamentos
+
+
+## Sobre nós
+
+**Criadores do jogo: Antonio Secchin, Bruno Lopes, Vitor Facco**
+
+Somos estudantes cursando o quinto período do curso de Ciências da Computação da Universidade Federal do Espírito Santo. 
+Como projeto para a matéria de Projeto Integrado, ministrada pelo professor [João Paulo Andrade Almeida](http://nemo.inf.ufes.br/equipe/jpalmeida/), tivemos a ideia de criar Risk of Survivors, um jogo desenvolvido na Unity, utilizando como linguagem principal C#.
+
+## Agradecimentos especiais
+
 
