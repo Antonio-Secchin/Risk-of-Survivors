@@ -43,6 +43,16 @@ Se tudo der certo, aparecerá o projeto na aba ***Projects*** do *Unity Hub*. En
 Somos estudantes cursando o quinto período do curso de Ciências da Computação da Universidade Federal do Espírito Santo. 
 Como projeto para a matéria de Projeto Integrado, ministrada pelo professor [João Paulo Andrade Almeida](http://nemo.inf.ufes.br/equipe/jpalmeida/), tivemos a ideia de criar Risk of Survivors, um jogo desenvolvido na Unity, utilizando como linguagem principal C#.
 
+## Meta
+
+Antonio Lucio Braga Secchin – antonio.secchin2030@gmail.com
+Seu Nome – [@SeuNome](https://twitter.com/...) – SeuEmail@exemplo.com
+Seu Nome – [@SeuNome](https://twitter.com/...) – SeuEmail@exemplo.com
+
+Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+
+[https://github.com/Antonio-Secchin](https://github.com/Antonio-Secchin)
+
 ## Agradecimentos especiais
 
 [0x72](https://0x72.itch.io/dungeontileset-ii),
