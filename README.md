@@ -48,6 +48,8 @@ Como projeto para a matéria de Projeto Integrado, ministrada pelo professor [Jo
 [0x72](https://0x72.itch.io/dungeontileset-ii),
 [Ansimuz](https://assetstore.unity.com/publishers/18720),
 [Brackeys](https://www.youtube.com/@Brackeys),
+[Coding in Flow](https://www.youtube.com/@codinginflow),
+[DawnosaurDev](https://www.youtube.com/@DawnosaurDev),
 [Etredal](https://www.youtube.com/@Etredal),
 [OcO](https://oco.itch.io/medieval-fantasy-character-pack-6),
 [penusbmic](https://penusbmic.itch.io),
