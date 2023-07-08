@@ -51,7 +51,7 @@ Como projeto para a matéria de Projeto Integrado, ministrada pelo professor [Jo
 [Coding in Flow](https://www.youtube.com/@codinginflow),
 [DawnosaurDev](https://www.youtube.com/@DawnosaurDev),
 [Etredal](https://www.youtube.com/@Etredal),
-[MoreBBlakeyyy](https://www.youtube.com/@morebblakeyyy)
+[MoreBBlakeyyy](https://www.youtube.com/@morebblakeyyy),
 [OcO](https://oco.itch.io/medieval-fantasy-character-pack-6),
 [penusbmic](https://penusbmic.itch.io),
 [Unity](https://unity.com/pt)
