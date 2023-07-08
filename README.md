@@ -46,7 +46,9 @@ Como projeto para a matéria de Projeto Integrado, ministrada pelo professor [Jo
 ## Meta
 
 Antonio Lucio Braga Secchin – antonio.secchin2030@gmail.com
+
 Seu Nome – [@SeuNome](https://twitter.com/...) – SeuEmail@exemplo.com
+
 Seu Nome – [@SeuNome](https://twitter.com/...) – SeuEmail@exemplo.com
 
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
