@@ -47,7 +47,7 @@ Como projeto para a matéria de Projeto Integrado, ministrada pelo professor [Jo
 
 Antonio Lucio Braga Secchin – antonio.secchin2030@gmail.com
 
-Seu Nome – [@SeuNome](https://twitter.com/...) – SeuEmail@exemplo.com
+Bruno Lopes Altoé – brunolaltoe@gmail.com
 
 Seu Nome – [@SeuNome](https://twitter.com/...) – SeuEmail@exemplo.com
 
