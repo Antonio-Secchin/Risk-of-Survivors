@@ -45,9 +45,10 @@ Como projeto para a matéria de Projeto Integrado, ministrada pelo professor [Jo
 
 ## Agradecimentos especiais
 
-[Brackeys](https://www.youtube.com/@Brackeys),
-[penusbmic](https://penusbmic.itch.io),
 [0x72](https://0x72.itch.io/dungeontileset-ii),
+[Ansimuz](https://assetstore.unity.com/publishers/18720),
+[Brackeys](https://www.youtube.com/@Brackeys),
+[Etredal](https://www.youtube.com/@Etredal),
 [OcO](https://oco.itch.io/medieval-fantasy-character-pack-6),
-[Etredal](https://www.youtube.com/@Etredal)
+[penusbmic](https://penusbmic.itch.io),
 [Unity](https://unity.com/pt)
