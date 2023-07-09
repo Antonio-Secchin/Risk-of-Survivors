@@ -1,4 +1,4 @@
-# ***Risk-of-Survivors***
+# ***Risk of Survivors***
 > Batizado de *Risk of Survivors*, nosso jogo homenageia dois expoentes do mundo indie de jogos que nos inspiraram: Risk of Rain e Vampire Survivors.
 
 
