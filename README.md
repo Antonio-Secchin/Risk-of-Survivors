@@ -21,7 +21,7 @@ Em seguida será instalado o Setup do Unity Hub, execute-o assim que concluir o 
 Siga os passos do Setup para instalar o *Unity Hub*.
 
 
-Ao abrir o UnityHub, entre com a sua conta ou crie uma caso não tenha, depois de entrar será requisitado que você adquira a sua licensa pessoal, basta seguir o passo a passo da *Unity*.    
+Ao abrir o UnityHub, entre com a sua conta ou crie uma caso não tenha, depois de entrar será requisitado que você adquira a sua licença pessoal, basta seguir o passo a passo da *Unity*.    
 Depois, instale a versão da *Unity*: *2022.3.0f1* ou superior.
 
 Após instalar escolha um local para clonar o repositório e utilize:
