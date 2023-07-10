@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class Movement : MonoBehaviour
 {
-    public GameObject player;
-    private Vector3 offset = new Vector3 (0, 5, -10);
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +11,8 @@ public class Camera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        transform.position = player.transform.position + offset;
+        
     }
 }
