@@ -58,6 +58,10 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 ## Agradecimentos especiais
 
+Primeiramente, gostaríamos de agradecer ao professor que ministrou a disciplina, [João Paulo Andrade Almeida](http://nemo.inf.ufes.br/equipe/jpalmeida/), por ter acompanhado o projeto e ensinado diversos conhecimentos que foram vitais para o desenvolvimento do jogo.
+
+Agradecemos também a:
+
 [0x72](https://0x72.itch.io/dungeontileset-ii),
 [Ansimuz](https://assetstore.unity.com/publishers/18720),
 [Brackeys](https://www.youtube.com/@Brackeys),
