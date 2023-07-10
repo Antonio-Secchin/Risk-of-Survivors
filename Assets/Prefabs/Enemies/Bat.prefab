@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 5983759172361001581}
   - component: {fileID: 579887660287480440}
   - component: {fileID: 172927249429985073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat
-  m_TagString: Untagged
+  m_TagString: Inimigos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

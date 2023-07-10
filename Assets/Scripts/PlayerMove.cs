@@ -7,16 +7,17 @@ using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 using Quaternion = UnityEngine.Quaternion;
 
-public class Personagem : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     Rigidbody2D rb;
     BoxCollider2D col;
     public Animator animator;
 
+    [Header("Movimento")]
+
     [SerializeField] LayerMask chaoPulavel;
 
     #region Variáveis correr
-
     public float moveSpeed = 15.0f;
     public float jumpSpeed = 15.0f;
     public float aceleracao = 1.0f;
@@ -24,10 +25,9 @@ public class Personagem : MonoBehaviour
     [SerializeField] float velPower = 2; // [SerializeField] == apareça no inspector, mesmo se for private
     public int pulosExtras = 1;
     public int pulosAtuais = 1;
-
     #endregion
 
-    bool pediuAtacar = false;
+    public bool sendoJogado = false;
     bool pediuPular = false;
     float moveInput = 0;
 
@@ -38,15 +38,11 @@ public class Personagem : MonoBehaviour
         col = GetComponent<BoxCollider2D>();
     }
 
-    // Update é chamado continuamente
+    // Update é chamada uma vez por frame
     void Update () {
         // Desse jeito só pode ser pedido um pulo até FixedUpdate rodar.
         if (pediuPular == false) 
             pediuPular = Input.GetButtonDown("Jump");
-        
-        // Desse jeito só pode ser pedido um ataque até FixedUpdate rodar.
-        if (pediuAtacar == false) 
-            pediuAtacar = Input.GetKeyDown("j");
 
         // Seta a yVelocity no animador
         animator.SetFloat("yVelocity", rb.velocity.y);
@@ -55,7 +51,7 @@ public class Personagem : MonoBehaviour
     // FixedUpdate é chamado toda vez que a engine de física rodar. Como não é todo frame, melhor receber os inputs muito curtos no Update.
     void FixedUpdate()
     {
-
+        
         #region correr
         moveInput = Input.GetAxis("Horizontal");
 
@@ -68,7 +64,9 @@ public class Personagem : MonoBehaviour
         // Multiplica a diferença de velocidade com a aceleração. Depois eleva isso a um número que quisermos. E finalmente, multiplicamos para voltar com o sinal.
         float movimento = Mathf.Pow(Mathf.Abs(speedDiff) * accelRate, velPower) * Mathf.Sign(speedDiff);
         
-        rb.AddForce(movimento * Vector2.right);
+        // Impede o player de anular o knockback de um hit
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Hero_hurt")) 
+            rb.AddForce(movimento * Vector2.right);
 
         #endregion
         
@@ -79,11 +77,6 @@ public class Personagem : MonoBehaviour
         if (pediuPular) {
             pediuPular = false;    
             Pulo();
-        }
-
-        if (pediuAtacar) {
-            Ataque();
-            pediuAtacar = false;    
         }
 
         if (IsGrounded()) {
@@ -100,10 +93,6 @@ public class Personagem : MonoBehaviour
     private bool IsGrounded() {
         // Isso cria uma caixa do tamanho da hitbox, mas 0.1f abaixo dela. Checa se isso colide com algo que tenha o layer chaoPulavel, se sim retorna true.
         return Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0f, Vector2.down, .1f, chaoPulavel);
-    }
-
-    private void Ataque () {
-        animator.SetTrigger("Attack");
     }
 
     private void Pulo () {

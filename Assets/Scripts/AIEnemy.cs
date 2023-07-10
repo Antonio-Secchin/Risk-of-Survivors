@@ -176,14 +176,14 @@ public class EnemyAI : MonoBehaviour
             return true;
         return false;
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Vector3 aux = transform.position;
-        aux.y = aux.y - 0.5f;
-        Gizmos.DrawCube(aux - transform.up * maxDistGround, boxSize);
-    }
+    
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.yellow;
+    //     Vector3 aux = transform.position;
+    //     aux.y = aux.y - 0.5f;
+    //     Gizmos.DrawCube(aux - transform.up * maxDistGround, boxSize);
+    // }
 
     public void StopAtack()
     {
