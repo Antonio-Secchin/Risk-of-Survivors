@@ -16,6 +16,8 @@ TagManager:
   - Obstaculo
   - Inimigos
   - Player
+  - Pathfinder
+  - 
   - 
   - 
   - 
@@ -44,6 +46,9 @@ TagManager:
     locked: 0
   - name: Background 2
     uniqueID: 3574101027
+    locked: 0
+  - name: Ambient 0
+    uniqueID: 1129786357
     locked: 0
   - name: Ambient
     uniqueID: 1038006445
