@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -44,7 +45,9 @@ public class Timer : MonoBehaviour
 
     private void OnEnd()
     {
-        //End Time , if want Do something
+        // Vitória do jogador!
+        // Carrega a cena de créditos do jogo
         print("End");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
