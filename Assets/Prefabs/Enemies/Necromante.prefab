@@ -301,5 +301,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1473220556407677074}
-  rb: {fileID: 0}
+  rb: {fileID: 7841112562093382137}
   vidaMax: 100
