@@ -40,6 +40,8 @@ public class EnemyAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        // Define que o Necromancer deve ter como target o Player
+        target = GameObject.Find("Hero").transform;
 
         InvokeRepeating("UpdatePath", 0.5f, pathUpdateSeconds);
     }

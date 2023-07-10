@@ -12,11 +12,12 @@ public class MobSpawner : MonoBehaviour
         public string name;
         public Transform enemy;
         public float spawnRate;
+        public int max;
     }
 
-    //private float searchCountdown = 1f;
     public Mob[] mobs;
     public Transform[] spawnPoints;
+    public int currentQuantity = 0; // Pode/deve ser colocada como private depois
 
     // Start is called before the first frame update
     void Start()
@@ -56,10 +57,14 @@ public class MobSpawner : MonoBehaviour
     {
         Debug.Log("Spawning wave: " + _mob.name);
 
-        for (int i = 0;/* i  < _wave.count*/; i++)
+        for (int i = 0;; i++)
         {
-            SpawnEnemy(_mob.enemy);
-            yield return new WaitForSeconds(1f / _mob.spawnRate);
+            yield return new WaitForSeconds(_mob.spawnRate);
+            if (currentQuantity < _mob.max)
+            {
+                SpawnEnemy(_mob.enemy);
+                currentQuantity++;
+            }
         }
 
         //state = SpawnState.WAITING;
