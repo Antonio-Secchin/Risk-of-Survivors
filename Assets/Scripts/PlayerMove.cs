@@ -17,6 +17,9 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] LayerMask chaoPulavel;
 
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource footStepsSoundEffect;
+
     #region Variáveis correr
     public float moveSpeed = 15.0f;
     public float jumpSpeed = 15.0f;
@@ -30,6 +33,8 @@ public class PlayerMove : MonoBehaviour
     public bool sendoJogado = false;
     bool pediuPular = false;
     float moveInput = 0;
+
+    private float footstepsTimer = Time.time;
 
     // Start é chamada antes da primeira update de frame
     void Start()
@@ -49,11 +54,17 @@ public class PlayerMove : MonoBehaviour
     }
 
     // FixedUpdate é chamado toda vez que a engine de física rodar. Como não é todo frame, melhor receber os inputs muito curtos no Update.
+
     void FixedUpdate()
     {
         
         #region correr
         moveInput = Input.GetAxis("Horizontal");
+        if (moveInput != 0 && IsGrounded() && (footstepsTimer < Time.time - 0.25))
+        {
+            footstepsTimer = Time.time;
+            footStepsSoundEffect.Play();
+        }
 
         // Velocidade (e direção) que querermos alcançar
         float targetSpeed = moveInput * moveSpeed;
@@ -110,6 +121,7 @@ public class PlayerMove : MonoBehaviour
             pulosAtuais = 1;
         }
 
+        jumpSoundEffect.Play();
         rb.AddForce(transform.up * jumpSpeed + new Vector3(0, -rb.velocity.y, 0), ForceMode2D.Impulse);
     }
 
