@@ -40,6 +40,8 @@ public class EnemyAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        // Define que o Necromancer deve ter como target o Player
+        target = GameObject.Find("Hero").transform;
 
         InvokeRepeating("UpdatePath", 0.5f, pathUpdateSeconds);
     }
@@ -99,7 +101,7 @@ public class EnemyAI : MonoBehaviour
         if (!IsGrounded())
         {
             force.y = 0;
-            //Esse addforce eh duplicado, mas gostei mais da movimentação dele assim, ficou mais fluida durante o pulo
+            //Esse addforce eh duplicado, mas gostei mais da movimentaï¿½ï¿½o dele assim, ficou mais fluida durante o pulo
             rb.AddForce(force);
         }
         else if (animator.GetFloat("JumpSpeed") == 1)
@@ -176,14 +178,14 @@ public class EnemyAI : MonoBehaviour
             return true;
         return false;
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Vector3 aux = transform.position;
-        aux.y = aux.y - 0.5f;
-        Gizmos.DrawCube(aux - transform.up * maxDistGround, boxSize);
-    }
+    
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.yellow;
+    //     Vector3 aux = transform.position;
+    //     aux.y = aux.y - 0.5f;
+    //     Gizmos.DrawCube(aux - transform.up * maxDistGround, boxSize);
+    // }
 
     public void StopAtack()
     {
