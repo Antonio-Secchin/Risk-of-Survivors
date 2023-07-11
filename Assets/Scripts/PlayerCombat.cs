@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PlayerCombat : MonoBehaviour
     BoxCollider2D col;
     public Animator animator;
     public PlayerMove playerMove;
+
+    [SerializeField] private AudioSource attackSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
 
     [Header("Ataque")]
     public Transform attackPoint;
@@ -60,6 +64,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Ataque () {
         // Ativa a animação de ataque
+        attackSoundEffect.Play();
         animator.SetTrigger("Attack");
 
         // Deteca inimigos dentro do alcance do ataque
@@ -90,12 +95,16 @@ public class PlayerCombat : MonoBehaviour
     }
 
     void Die () {
+        deathSoundEffect.Play();
         animator.SetBool("IsDead", true);
-
-        // TODO: Fazer alguma coisa de "game over" aqui
-
         playerMove.enabled = false;      
         this.enabled = false;
+        Invoke("postDie", 5);
+    }
+
+    void postDie ()
+    {
+        SceneManager.LoadScene(3); // Carrega tela de GameOver
     }
 
     // Desenha no editor o alcance do ataque da espada. Para melhorar nossa visualização como desenvolvedor.
