@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4029346305971893227}
   - component: {fileID: 5983759172361001581}
   - component: {fileID: 579887660287480440}
+  - component: {fileID: 7165649320274127318}
   - component: {fileID: 172927249429985073}
   m_Layer: 8
   m_Name: Bat
@@ -120,7 +121,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0078032985, y: 0.015780509}
@@ -254,6 +255,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPath: {fileID: 4029346305971893227}
+--- !u!114 &7165649320274127318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655653435874475588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50217eeabd4c2b46824fec64e7744b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1779215385284986832}
+  rb: {fileID: 172927249429985073}
+  vidaMax: 10
+  delayMorte: 0
 --- !u!50 &172927249429985073
 Rigidbody2D:
   serializedVersion: 4
