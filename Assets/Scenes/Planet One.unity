@@ -12384,7 +12384,7 @@ RectTransform:
   m_GameObject: {fileID: 923984271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.4860811, y: 1.4860811, z: 1.4860811}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1620269496}
@@ -12392,10 +12392,10 @@ RectTransform:
   m_Father: {fileID: 969827228}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 312.32394, y: 149.1984}
-  m_SizeDelta: {x: -663.5452, y: -334.9312}
+  m_AnchoredPosition: {x: -83.19147, y: -68.21741}
+  m_SizeDelta: {x: 110.5864, y: 92.8963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923984273
 MonoBehaviour:
@@ -12449,7 +12449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 1620269497}
   uiText: {fileID: 2082990181}
-  Duration: 60
+  Duration: 180
 --- !u!1 &959618529
 GameObject:
   m_ObjectHideFlags: 0
@@ -12530,7 +12530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -32753,7 +32753,7 @@ PrefabInstance:
       objectReference: {fileID: 1602915287}
     - target: {fileID: 5171838574024982462, guid: f8526bb712e05804e84cd6c56fdad71a, type: 3}
       propertyPath: mobs.Array.data[0].spawnRate
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
