@@ -111,7 +111,7 @@ MonoBehaviour:
   layerInimigo:
     serializedVersion: 2
     m_Bits: 256
-  attackRange: 0.5
+  attackRange: 1
   danoAtaque: 10
   knockback: 50
   attackRate: 2

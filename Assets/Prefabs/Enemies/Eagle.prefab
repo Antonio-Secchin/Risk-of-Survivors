@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7537459633733859365}
   - component: {fileID: 6392626292172896088}
   - component: {fileID: 9056750144678253880}
+  - component: {fileID: -8645868872856249531}
   - component: {fileID: 4099740771355963769}
   m_Layer: 8
   m_Name: Eagle
@@ -254,6 +255,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPath: {fileID: 7537459633733859365}
+--- !u!114 &-8645868872856249531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8574870520551045019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50217eeabd4c2b46824fec64e7744b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5405547857621836710}
+  rb: {fileID: 4099740771355963769}
+  vidaMax: 100
 --- !u!50 &4099740771355963769
 Rigidbody2D:
   serializedVersion: 4

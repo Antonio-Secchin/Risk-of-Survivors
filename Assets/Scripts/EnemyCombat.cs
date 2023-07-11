@@ -9,6 +9,7 @@ public class EnemyCombat : MonoBehaviour
 
     public int vidaMax = 100;
     int vidaAtual;
+    public float delayMorte = 5f;
 
     // Start é chamada antes da primeira update de frame
     void Start()
@@ -43,7 +44,14 @@ public class EnemyCombat : MonoBehaviour
                 c.enabled = false;
         }
 
-        Destroy(gameObject, 5f);
+        // Faz o personagem parar de se mover
+        MonoBehaviour[] scripts = gameObject.GetComponents<MonoBehaviour>();
+        foreach(MonoBehaviour script in scripts)
+        {
+            script.enabled = false;
+        }
+
+        Destroy(gameObject, delayMorte);
         this.enabled = false;
     }
 }

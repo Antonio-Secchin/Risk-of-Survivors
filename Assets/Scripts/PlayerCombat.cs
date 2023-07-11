@@ -13,7 +13,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public LayerMask layerInimigo;
 
-    public float attackRange = 0.5f;
+    public float attackRange = 0.9f;
     public int danoAtaque = 10;
     public int knockback = 50;
 
