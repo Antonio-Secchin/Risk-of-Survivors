@@ -55,6 +55,8 @@ Vitor Facco Calmon – vitorfacco81@gmail.com / vitor.gamedev@gmail.com
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 [https://github.com/Antonio-Secchin](https://github.com/Antonio-Secchin)
+[https://github.com/brutexx](https://github.com/brutexx)
+[https://github.com/ItsVitor](https://github.com/ItsVitor)
 
 ## Agradecimentos especiais
 
