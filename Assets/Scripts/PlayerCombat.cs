@@ -62,6 +62,14 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
+    #region upgrades
+    public void AddDano () { danoAtaque += 2; }
+    public void AddAlcance () { attackRange *= 1.1f; }
+    public void AddVida() { vidaAtual += 20; }
+    public void AddVelocidadeAtaque () { attackRate += 0.5f; }
+    public void AddPulos () { playerMove.pulosExtras++; }
+    #endregion
+
     private void Ataque () {
         // Ativa a animação de ataque
         attackSoundEffect.Play();
@@ -107,14 +115,6 @@ public class PlayerCombat : MonoBehaviour
         SceneManager.LoadScene(3); // Carrega tela de GameOver
     }
 
-    // Desenha no editor o alcance do ataque da espada. Para melhorar nossa visualização como desenvolvedor.
-    void OnDrawGizmosSelected () {
-        if (attackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
-
     private void OnTriggerStay2D(Collider2D other) {
         if (Time.time >= nextDefenseTime) {
             if (other.gameObject.tag == "Inimigos") {
@@ -123,5 +123,13 @@ public class PlayerCombat : MonoBehaviour
             }
             nextDefenseTime = Time.time + 1/defenseRate;   
         }
+    }
+
+    // Desenha no editor o alcance do ataque da espada. Para melhorar nossa visualização como desenvolvedor.
+    void OnDrawGizmosSelected () {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

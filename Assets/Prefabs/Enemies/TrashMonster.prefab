@@ -52,9 +52,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8448097602158924195}
   rb: {fileID: 9190652113129162880}
+  player: {fileID: 7605002818057527651, guid: 37b4407cdd359744fa0a7cfbaee395bd, type: 3}
   vidaMax: 100
-  dano: 10
-  knockback: 50
+  delayMorte: 5
 --- !u!212 &1305283867533275205
 SpriteRenderer:
   m_ObjectHideFlags: 0

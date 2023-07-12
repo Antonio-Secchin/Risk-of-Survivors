@@ -118,7 +118,7 @@ public class PlayerMove : MonoBehaviour
         }
         else{
             animator.SetBool("Jump", true);
-            pulosAtuais = 1;
+            pulosAtuais = pulosExtras;
         }
 
         jumpSoundEffect.Play();

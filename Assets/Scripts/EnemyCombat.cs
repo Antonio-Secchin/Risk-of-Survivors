@@ -6,6 +6,8 @@ public class EnemyCombat : MonoBehaviour
 {
     public Animator animator;
     public Rigidbody2D rb;
+    public GameObject player;
+    PlayerCombat playerCombat;
 
     public int vidaMax = 100;
     int vidaAtual;
@@ -16,6 +18,7 @@ public class EnemyCombat : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         vidaAtual = vidaMax;
+        playerCombat = player.GetComponent<PlayerCombat>();
     }
 
     public void TakeDamage (int dano, Vector2 knockback) {
@@ -34,7 +37,34 @@ public class EnemyCombat : MonoBehaviour
 
     void Die () {
         animator.SetBool("IsDead", true);
-        
+
+        // Chance de ele dar uma melhoria para o jogador
+        if (Random.Range(1, 1) == 1) {
+            // Qual melhoria
+            int melhoria = Random.Range(0, 4);
+            Debug.Log(melhoria.ToString());
+            switch (melhoria) {
+            case 4:
+                playerCombat.AddVelocidadeAtaque();
+                break;
+            case 3:
+                playerCombat.AddVida();
+                break;
+            case 2:
+                playerCombat.AddPulos();
+                break;
+            case 1:
+                playerCombat.AddAlcance();
+                break;
+            case 0:
+                playerCombat.AddDano();
+                break;
+            default:
+                playerCombat.AddDano();
+                break;
+            }
+        }
+
         BoxCollider2D[] colisores = GetComponents<BoxCollider2D>();
 
         // Para o personagem não ser mais atingido

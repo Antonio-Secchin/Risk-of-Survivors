@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1779215385284986832}
   rb: {fileID: 172927249429985073}
+  player: {fileID: 7605002818057527651, guid: 37b4407cdd359744fa0a7cfbaee395bd, type: 3}
   vidaMax: 10
   delayMorte: 0
 --- !u!50 &172927249429985073
