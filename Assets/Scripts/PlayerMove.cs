@@ -34,13 +34,14 @@ public class PlayerMove : MonoBehaviour
     bool pediuPular = false;
     float moveInput = 0;
 
-    private float footstepsTimer = Time.time;
+    private float footstepsTimer;
 
     // Start é chamada antes da primeira update de frame
     void Start()
     {
         rb= GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
+        footstepsTimer = Time.time;
     }
 
     // Update é chamada uma vez por frame
