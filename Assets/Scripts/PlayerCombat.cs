@@ -65,9 +65,12 @@ public class PlayerCombat : MonoBehaviour
     }
 
     #region upgrades
+    public void AddVida() { 
+        vidaAtual += 20;
+        healthBar.SetHealth(vidaAtual); 
+    }
     public void AddDano () { danoAtaque += 2; }
     public void AddAlcance () { attackRange *= 1.1f; }
-    public void AddVida() { vidaAtual += 20; }
     public void AddVelocidadeAtaque () { attackRate += 0.5f; }
     public void AddPulos () { playerMove.pulosExtras++; }
     #endregion
@@ -91,7 +94,7 @@ public class PlayerCombat : MonoBehaviour
             return; // Perdeu o jogo já, para que dar mais dano?
         
         vidaAtual -= dano;
-        
+
         healthBar.SetHealth(vidaAtual);
 
         if (vidaAtual <= 0) {
