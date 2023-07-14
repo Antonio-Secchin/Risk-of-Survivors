@@ -38,8 +38,6 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
   m_SortingLayers:
   - name: Background
     uniqueID: 1714607181
@@ -61,4 +59,7 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 65331623
+    locked: 0
+  - name: Ambient 3
+    uniqueID: 4025559047
     locked: 0
