@@ -9,6 +9,7 @@ public class PlayerCombat : MonoBehaviour
     BoxCollider2D col;
     public Animator animator;
     public PlayerMove playerMove;
+    public HealthBar healthBar;
 
     [SerializeField] private AudioSource attackSoundEffect;
     [SerializeField] private AudioSource deathSoundEffect;
@@ -18,7 +19,7 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask layerInimigo;
 
     public float attackRange = 0.9f;
-    public int danoAtaque = 10;
+    public int danoAtaque = 5;
     public int knockback = 50;
 
     public float attackRate = 2f;
@@ -29,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("Defesa")]
     public int vidaMax = 100;
-    int vidaAtual;
+    public int vidaAtual;
 
     public int danoLevado = 10;
 
@@ -42,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
         rb= GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         vidaAtual = vidaMax;
+        healthBar.SetMaxHealth(vidaMax);
     }
 
     // Update é chamada uma vez por frame
@@ -62,6 +64,22 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
+    #region upgrades
+    // Não preciso de parâmetro, pois nunca vai ser chamada pela DaMelhoriaEspecial
+    public void AddVida() { 
+        if (vidaAtual >= 80)
+            vidaAtual = 100;
+        else
+            vidaAtual += 20;
+            
+        healthBar.SetHealth(vidaAtual); 
+    }
+    public void AddDano (int dano) { danoAtaque += dano; }
+    public void AddAlcance (float mult) { attackRange *= mult; }
+    public void AddVelocidadeAtaque (float vel) { attackRate += vel; }
+    public void AddPulos (int qtd) { playerMove.pulosExtras += qtd; }
+    #endregion
+
     private void Ataque () {
         // Ativa a animação de ataque
         attackSoundEffect.Play();
@@ -81,6 +99,8 @@ public class PlayerCombat : MonoBehaviour
             return; // Perdeu o jogo já, para que dar mais dano?
         
         vidaAtual -= dano;
+
+        healthBar.SetHealth(vidaAtual);
 
         if (vidaAtual <= 0) {
             Die();
@@ -107,14 +127,6 @@ public class PlayerCombat : MonoBehaviour
         SceneManager.LoadScene(3); // Carrega tela de GameOver
     }
 
-    // Desenha no editor o alcance do ataque da espada. Para melhorar nossa visualização como desenvolvedor.
-    void OnDrawGizmosSelected () {
-        if (attackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
-
     private void OnTriggerStay2D(Collider2D other) {
         if (Time.time >= nextDefenseTime) {
             if (other.gameObject.tag == "Inimigos") {
@@ -123,5 +135,13 @@ public class PlayerCombat : MonoBehaviour
             }
             nextDefenseTime = Time.time + 1/defenseRate;   
         }
+    }
+
+    // Desenha no editor o alcance do ataque da espada. Para melhorar nossa visualização como desenvolvedor.
+    void OnDrawGizmosSelected () {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

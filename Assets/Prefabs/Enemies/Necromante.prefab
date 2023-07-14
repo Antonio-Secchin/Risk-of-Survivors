@@ -302,4 +302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1473220556407677074}
   rb: {fileID: 7841112562093382137}
+  player: {fileID: 7605002818057527651, guid: 37b4407cdd359744fa0a7cfbaee395bd, type: 3}
   vidaMax: 100
+  delayMorte: 5

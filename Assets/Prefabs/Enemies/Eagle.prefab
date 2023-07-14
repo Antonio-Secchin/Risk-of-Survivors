@@ -269,7 +269,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5405547857621836710}
   rb: {fileID: 4099740771355963769}
+  player: {fileID: 7605002818057527651, guid: 37b4407cdd359744fa0a7cfbaee395bd, type: 3}
   vidaMax: 100
+  delayMorte: 5
 --- !u!50 &4099740771355963769
 Rigidbody2D:
   serializedVersion: 4
