@@ -17,6 +17,9 @@ public class HealthBar : MonoBehaviour
     }
 
     public void SetHealth (int health) {
+        if (health >= 100) // Nunca deveria acontecer, mas só por precaução.
+            health = 100;
+
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }

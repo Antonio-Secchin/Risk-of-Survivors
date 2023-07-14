@@ -30,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("Defesa")]
     public int vidaMax = 100;
-    int vidaAtual;
+    public int vidaAtual;
 
     public int danoLevado = 10;
 
@@ -66,7 +66,11 @@ public class PlayerCombat : MonoBehaviour
 
     #region upgrades
     public void AddVida() { 
-        vidaAtual += 20;
+        if (vidaAtual >= 80)
+            vidaAtual = 100;
+        else
+            vidaAtual += 20;
+            
         healthBar.SetHealth(vidaAtual); 
     }
     public void AddDano () { danoAtaque += 2; }

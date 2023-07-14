@@ -1668,7 +1668,7 @@ GameObject:
   - component: {fileID: 266867692}
   - component: {fileID: 266867691}
   m_Layer: 5
-  m_Name: Heatlh bar
+  m_Name: Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2066,6 +2066,10 @@ PrefabInstance:
       propertyPath: attackSoundEffect
       value: 
       objectReference: {fileID: 838211683}
+    - target: {fileID: 6092016789202601790, guid: 37b4407cdd359744fa0a7cfbaee395bd, type: 3}
+      propertyPath: pulosExtras
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6092016789202601790, guid: 37b4407cdd359744fa0a7cfbaee395bd, type: 3}
       propertyPath: jumpSoundEffect
       value: 

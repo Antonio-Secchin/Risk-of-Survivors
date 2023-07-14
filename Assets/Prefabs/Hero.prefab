@@ -85,6 +85,8 @@ MonoBehaviour:
   chaoPulavel:
     serializedVersion: 2
     m_Bits: 64
+  jumpSoundEffect: {fileID: 0}
+  footStepsSoundEffect: {fileID: 0}
   moveSpeed: 20
   jumpSpeed: 15
   aceleracao: 1
@@ -107,12 +109,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7554702807663604161}
   playerMove: {fileID: 6092016789202601790}
+  healthBar: {fileID: 1651660766738471248, guid: e6b3db6823c6d0a4786c8f9dbcb8c167, type: 3}
+  attackSoundEffect: {fileID: 0}
+  deathSoundEffect: {fileID: 0}
   attackPoint: {fileID: 7488693863450328911}
   layerInimigo:
     serializedVersion: 2
     m_Bits: 256
-  attackRange: 1
-  danoAtaque: 10
+  attackRange: 1.7715611
+  danoAtaque: 20
   knockback: 50
   attackRate: 2
   vidaMax: 100

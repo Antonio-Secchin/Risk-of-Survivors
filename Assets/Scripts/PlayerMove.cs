@@ -92,9 +92,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         if (IsGrounded()) {
-            if (pulosAtuais <= 0) {
-                pulosAtuais = pulosExtras;
-            }
+            pulosAtuais = pulosExtras;
             animator.SetBool("Jump", false);
         }
         else
