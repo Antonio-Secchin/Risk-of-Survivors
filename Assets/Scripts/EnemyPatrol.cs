@@ -4,6 +4,10 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// A classe <c> EnemyPatrol()</c> controla todos inimigos que patrulham e nao atacam, ela foi feita para ser facilmente 
+/// reutilizada para outros inimigos.
+/// </summary>
 public class EnemyPatrol : MonoBehaviour
 {
     public GameObject pointA;
@@ -22,6 +26,8 @@ public class EnemyPatrol : MonoBehaviour
     void Update()
     {
         Vector2 point = currentPoint.position - transform.position;
+
+        //Configura a velocidade do inimigo para ir na direcao certa
         if(currentPoint == pointB.transform)
         {
             rb.velocity = new Vector2(speed, 0);
@@ -30,6 +36,8 @@ public class EnemyPatrol : MonoBehaviour
         {
             rb.velocity = new Vector2(-speed, 0);
         }
+
+        //Verifica se chegou no ponto A ou B, vira o inimigo e atualiza o ponto
         if((Vector2.Distance(transform.position, currentPoint.position)) < 1f && currentPoint == pointB.transform)
         {
             VirarEnemy();
@@ -42,6 +50,9 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A funcao <c> VirarEnemy()</c> é utilizada para virar a sprite do inimigo para a direcao que ele esta andando.
+    /// </summary>
     private void VirarEnemy()
     {
         Vector3 localScale = transform.localScale;
@@ -49,6 +60,9 @@ public class EnemyPatrol : MonoBehaviour
         transform.localScale = localScale;
     }
 
+    /// <summary>
+    /// A funcao <c> OnDrawGizmos()</c> desenha os pontos A e B no cenario.
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(pointA.transform.position, 1f);

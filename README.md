@@ -2,12 +2,12 @@
 > Batizado de *Risk of Survivors*, nosso jogo homenageia dois expoentes do mundo indie de jogos que nos inspiraram: Risk of Rain e Vampire Survivors.
 
 
-Risk-of-Survivors é um platformer 2D com elementos de roguelike. O jogador é colocado em um mundo em que pode andar, correr, pular e deve enfrentar hordas de criaturas com sua arma, se tornando melhor com o tempo ao ganhar experiência. O objetivo final de Risk of Survivors é sobreviver até o tempo terminar e escapar do planeta em que o jogo é ambientado. Caso o personagem do jogador morra antes disso, ele poderá recomeçar, tendo adquirido conhecimentos que o tornarão mais forte na próxima tentativa.
+Risk of Survivors é um platformer 2D com elementos de roguelike. O jogador é colocado em um mundo em que pode andar, correr, pular e deve enfrentar hordas de criaturas com sua arma, se tornando melhor com o tempo ao ganhar experiência. O objetivo final de Risk of Survivors é sobreviver até o tempo terminar e escapar do planeta em que o jogo é ambientado. Caso o personagem do jogador morra antes disso, ele poderá recomeçar, tendo adquirido conhecimentos que o tornarão mais forte na próxima tentativa.
 
 ![Screenshot do jogo](/Imagens/RiskOfSurv_Capa.JPG)
 
 ## Instalação
-
+Para jogar, baixe a pasta RiskOfSurvivors.zip, disponibilizada através da release mais recente, faça a descompactação e execute o arquivo "RiskOfSurv".
 
 ## Configuração para Desenvolvimento
 
@@ -36,6 +36,9 @@ Se tudo der certo, aparecerá o projeto na aba ***Projects*** do *Unity Hub*. En
 
 ## Histórico de lançamentos
 
+- Lançamento - versão 1.0
+    + versão de lançamento do jogo com a primeira build feita.
+
 
 ## Sobre nós
 
@@ -50,11 +53,15 @@ Antonio Lucio Braga Secchin – antonio.secchin2030@gmail.com
 
 Bruno Lopes Altoé – brunolaltoe@gmail.com
 
-Seu Nome – [@SeuNome](https://twitter.com/...) – SeuEmail@exemplo.com
+Vitor Facco Calmon – vitorfacco81@gmail.com / vitor.gamedev@gmail.com
 
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 [https://github.com/Antonio-Secchin](https://github.com/Antonio-Secchin)
+
+[https://github.com/brutexx](https://github.com/brutexx)
+
+[https://github.com/ItsVitor](https://github.com/ItsVitor)
 
 ## Agradecimentos especiais
 
