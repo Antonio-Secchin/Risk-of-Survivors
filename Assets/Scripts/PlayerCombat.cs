@@ -19,7 +19,7 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask layerInimigo;
 
     public float attackRange = 0.9f;
-    public int danoAtaque = 10;
+    public int danoAtaque = 5;
     public int knockback = 50;
 
     public float attackRate = 2f;
@@ -65,6 +65,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     #region upgrades
+    // Não preciso de parâmetro, pois nunca vai ser chamada pela DaMelhoriaEspecial
     public void AddVida() { 
         if (vidaAtual >= 80)
             vidaAtual = 100;
@@ -73,10 +74,10 @@ public class PlayerCombat : MonoBehaviour
             
         healthBar.SetHealth(vidaAtual); 
     }
-    public void AddDano () { danoAtaque += 2; }
-    public void AddAlcance () { attackRange *= 1.1f; }
-    public void AddVelocidadeAtaque () { attackRate += 0.5f; }
-    public void AddPulos () { playerMove.pulosExtras++; }
+    public void AddDano (int dano) { danoAtaque += dano; }
+    public void AddAlcance (float mult) { attackRange *= mult; }
+    public void AddVelocidadeAtaque (float vel) { attackRate += vel; }
+    public void AddPulos (int qtd) { playerMove.pulosExtras += qtd; }
     #endregion
 
     private void Ataque () {

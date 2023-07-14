@@ -37,27 +37,27 @@ public class EnemyCombat : MonoBehaviour
     }
 
     void DaMelhoriaEspecial () {
-        // Qual melhoria
-        int melhoria = Random.Range(0, 4);
+        // Qual melhoria (por enquanto sem Ataque especial)
+        int melhoria = Random.Range(0, 3);
         
         switch (melhoria) {
         case 4:
-            playerCombat.AddVelocidadeAtaque();
+            // Ataque especial
             break;
         case 3:
-            // A fazer
+            playerCombat.AddVelocidadeAtaque(1);
             break;
         case 2:
-            playerCombat.AddPulos();
+            playerCombat.AddPulos(2);
             break;
         case 1:
-            playerCombat.AddAlcance();
+            playerCombat.AddAlcance(1.2f);
             break;
         case 0:
-            playerCombat.AddDano();
+            playerCombat.AddDano(4);
             break;
         default:
-            playerCombat.AddDano();
+            playerCombat.AddDano(4);
             break;
         }
     }
@@ -68,22 +68,22 @@ public class EnemyCombat : MonoBehaviour
         
         switch (melhoria) {
         case 4:
-            playerCombat.AddVelocidadeAtaque();
+            playerCombat.AddVelocidadeAtaque(0.5f);
             break;
         case 3:
             playerCombat.AddVida();
             break;
         case 2:
-            playerCombat.AddPulos();
+            playerCombat.AddPulos(1);
             break;
         case 1:
-            playerCombat.AddAlcance();
+            playerCombat.AddAlcance(1.1f);
             break;
         case 0:
-            playerCombat.AddDano();
+            playerCombat.AddDano(2);
             break;
         default:
-            playerCombat.AddDano();
+            playerCombat.AddDano(2);
             break;
         }
     }
@@ -92,7 +92,7 @@ public class EnemyCombat : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         // Chance de ele dar uma melhoria para o jogador
-        if (Random.Range(1, 1) == 1) {
+        if (Random.Range(0, 10) == 1) {
             if (playerCombat.vidaAtual < 100)
                 DaMelhoria();
             else
