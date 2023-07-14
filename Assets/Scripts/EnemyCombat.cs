@@ -39,16 +39,13 @@ public class EnemyCombat : MonoBehaviour
     void DaMelhoriaEspecial () {
         // Qual melhoria
         int melhoria = Random.Range(0, 4);
-        // DEBUG
-        melhoria = 3;
-        Debug.Log("Especial: " + melhoria.ToString());
         
         switch (melhoria) {
         case 4:
             playerCombat.AddVelocidadeAtaque();
             break;
         case 3:
-            Debug.Log("Add nada");
+            // A fazer
             break;
         case 2:
             playerCombat.AddPulos();
@@ -68,9 +65,6 @@ public class EnemyCombat : MonoBehaviour
     void DaMelhoria () {
         // Qual melhoria
         int melhoria = Random.Range(0, 4);
-        // DEBUG
-        melhoria = 3;
-        Debug.Log(melhoria.ToString());
         
         switch (melhoria) {
         case 4:
@@ -99,7 +93,6 @@ public class EnemyCombat : MonoBehaviour
 
         // Chance de ele dar uma melhoria para o jogador
         if (Random.Range(1, 1) == 1) {
-            Debug.Log("Matou! Vida antes upgrade: " + playerCombat.vidaAtual);
             if (playerCombat.vidaAtual < 100)
                 DaMelhoria();
             else
