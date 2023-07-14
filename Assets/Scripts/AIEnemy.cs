@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+/// <summary>
+/// A classe <c> EnemyAI</c> controla todos inmigos terrestres que perseguem o player, no caso o necromante, porem pode ser 
+/// facilmente reutilizada para outros inimigos.
+/// </summary>
 public class EnemyAI : MonoBehaviour
 {
     [Header("Pathfinding")]
@@ -15,7 +19,6 @@ public class EnemyAI : MonoBehaviour
     public float jumpSpeed = 1000f;
     public float nextWaypointDistance = 3f;
     public float jumpNodeHeightRequirement = 0.8f;
-    //public float jumpModifier = 0.3f;
     public float jumpCheckOffset = 0.1f;
     public Vector3 boxSize;
     public float maxDistGround;
@@ -68,6 +71,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A funcao <c> UpdatePath()</c> atualiza o caminho do inimigo.
+    /// </summary>
         private void UpdatePath()
     {
         if (followEnabled && TargetInDistance() && seeker.IsDone())
@@ -76,6 +82,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A funcao <c> PathFollow()</c> faz o inimigo seguir o caminho.
+    /// </summary>
     private void PathFollow()
     {
         if (path == null)
@@ -83,21 +92,21 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        // Reached end of path
+        // chegou no fim do caminho
         if (currentWaypoint >= path.vectorPath.Count)
         {
             return;
         }
 
 
-        // See if colliding with anything
+        // Ve se esta colidindo com algo
         Vector3 startOffset = transform.position - new Vector3(0f, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset);
 
-        // Direction Calculation
+        // Calculo da direcao
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-        //is jumping
+        //esta no ar
         if (!IsGrounded())
         {
             force.y = 0;
@@ -110,7 +119,7 @@ public class EnemyAI : MonoBehaviour
         }
 
 
-        //Attack the enemy
+        //Ataca o inimigo se estiver no alcance
         if (attackEnable && IsGrounded())
         {
             if(Vector2.Distance(transform.position, target.transform.position) <= attackRange)
@@ -122,7 +131,7 @@ public class EnemyAI : MonoBehaviour
                 animator.SetFloat("Distance", 0);
             }
         }
-        // Jump
+        // Controla o pulo
         if (jumpEnabled && IsGrounded())
         {
             if (direction.y > jumpNodeHeightRequirement)
@@ -132,7 +141,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        // Movement
+        // Move o inmigo
         rb.AddForce(force);
 
         // Next Waypoint
@@ -156,11 +165,17 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A funcao <c> TargetInDistance()</c> verifica se o alvo esta dentro do alcance definido.
+    /// </summary>
     private bool TargetInDistance()
     {
         return Vector2.Distance(transform.position, target.transform.position) < activateDistance;
     }
 
+    /// <summary>
+    /// A funcao <c> OnPathComplete()</c> ao completar o caminho zera o waypoint atual.
+    /// </summary>
     private void OnPathComplete(Path p)
     {
         if (!p.error)
@@ -170,6 +185,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A funcao <c> IsGrounded()</c> verifica se o inimigo esta no ar ou nao.
+    /// </summary>
     private bool IsGrounded()
     {
         Vector2 aux = transform.position;
@@ -178,7 +196,10 @@ public class EnemyAI : MonoBehaviour
             return true;
         return false;
     }
-    
+
+    /// <summary>
+    /// A funcao <c> OnDrawGizmos()</c> desenha uma caixa no pe do inimigo para ver melhor o <c> IsGrounded()</c>.
+    /// </summary>
     // private void OnDrawGizmos()
     // {
     //     Gizmos.color = Color.yellow;
@@ -187,6 +208,9 @@ public class EnemyAI : MonoBehaviour
     //     Gizmos.DrawCube(aux - transform.up * maxDistGround, boxSize);
     // }
 
+    /// <summary>
+    /// A funcao <c> StopAtack()</c> eh chamada quando a animacao de ataque acaba.
+    /// </summary>
     public void StopAtack()
     {
         animator.SetFloat("Distance", 0);

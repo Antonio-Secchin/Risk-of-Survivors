@@ -36,6 +36,9 @@ Se tudo der certo, aparecerá o projeto na aba ***Projects*** do *Unity Hub*. En
 
 ## Histórico de lançamentos
 
+- Lançamento - versão 1.0
+    + versão de lançamento do jogo com a primeira build feita.
+
 
 ## Sobre nós
 
