@@ -9,6 +9,7 @@ public class PlayerCombat : MonoBehaviour
     BoxCollider2D col;
     public Animator animator;
     public PlayerMove playerMove;
+    public HealthBar healthBar;
 
     [SerializeField] private AudioSource attackSoundEffect;
     [SerializeField] private AudioSource deathSoundEffect;
@@ -42,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
         rb= GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         vidaAtual = vidaMax;
+        healthBar.SetMaxHealth(vidaMax);
     }
 
     // Update é chamada uma vez por frame
@@ -89,6 +91,8 @@ public class PlayerCombat : MonoBehaviour
             return; // Perdeu o jogo já, para que dar mais dano?
         
         vidaAtual -= dano;
+        
+        healthBar.SetHealth(vidaAtual);
 
         if (vidaAtual <= 0) {
             Die();
