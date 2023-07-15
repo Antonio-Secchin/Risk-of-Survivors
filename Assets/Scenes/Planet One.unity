@@ -12057,7 +12057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171838574024982462, guid: f8526bb712e05804e84cd6c56fdad71a, type: 3}
       propertyPath: mobs.Array.data[0].max
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5171838574024982462, guid: f8526bb712e05804e84cd6c56fdad71a, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -33090,7 +33090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171838574024982462, guid: f8526bb712e05804e84cd6c56fdad71a, type: 3}
       propertyPath: mobs.Array.data[0].max
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5171838574024982462, guid: f8526bb712e05804e84cd6c56fdad71a, type: 3}
       propertyPath: spawnPoints.Array.size
