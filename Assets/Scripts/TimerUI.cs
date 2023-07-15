@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// A classe <c> Timer()</c> controla o timer do jogador.
+/// </summary>
 public class Timer : MonoBehaviour
 {
     [SerializeField] private Image uiFill;
@@ -21,12 +24,18 @@ public class Timer : MonoBehaviour
         Being(Duration);
     }
 
+    /// <summary>
+    /// A funcao <c> Being()</c> inicializa o timer..
+    /// </summary>
     private void Being(int Second)
     {
         remainingDuration = Second;
         StartCoroutine(UpdateTimer());
     }
 
+    /// <summary>
+    /// A funcao <c> UpdateTimer()</c> atualiza o timer, inclusive na UI.
+    /// </summary>
     private IEnumerator UpdateTimer()
     {
         while (remainingDuration >= 0)

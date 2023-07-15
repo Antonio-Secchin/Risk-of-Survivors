@@ -51,7 +51,7 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     /// <summary>
-    /// A funcao <c> VirarEnemy()</c> é utilizada para virar a sprite do inimigo para a direcao que ele esta andando.
+    /// A funcao <c> VirarEnemy()</c> ï¿½ utilizada para virar a sprite do inimigo para a direcao que ele esta andando.
     /// </summary>
     private void VirarEnemy()
     {

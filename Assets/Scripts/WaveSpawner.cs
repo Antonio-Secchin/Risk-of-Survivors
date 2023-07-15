@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A classe <c> MobSpawner()</c> controla o spawn de diferentes inimigos no mapa.
+/// </summary>
 public class MobSpawner : MonoBehaviour
 {
     public enum SpawnState { SPAWNING, WAITING, COUNTING}
@@ -36,23 +39,9 @@ public class MobSpawner : MonoBehaviour
         
     }
 
-    //bool EnemyIsAlive()
-    //{
-    //    searchCountdown -= Time.deltaTime;
-    //    if (searchCountdown <= 0f)
-    //    {
-    //        searchCountdown = 1f;
-    //        /* Atenção: este é um método bastante custoso. 
-    //           Havendo muitos GameObjects em jogo, pode trazer problemas de performance. 
-    //           Nossa proposta é pequena e não devemos ter problemas, mas fica o aviso. */
-    //        if (GameObject.FindGameObjectsWithTag("Enemy") == null)
-    //        {
-    //            return false;
-    //        }     
-    //    }
-    //    return true;
-    //}
-
+    /// <summary>
+    /// A funcao <c> StartMobSpawn()</c> inicia o spawn de inimigos a partir do MobSpawner.
+    /// </summary>
     IEnumerator StartMobSpawn(Mob _mob)
     {
         Debug.Log("Spawning wave: " + _mob.name);
@@ -66,12 +55,11 @@ public class MobSpawner : MonoBehaviour
                 currentQuantity++;
             }
         }
-
-        //state = SpawnState.WAITING;
-
-        //yield break;
     }
 
+    /// <summary>
+    /// A funcao <c> SpawnEnemy()</c> spawna o inimigo, o instanciando em um dos pontos de spawn.
+    /// </summary>
     void SpawnEnemy(Transform _enemy)
     {
         Debug.Log("Spawning enemy: " + _enemy.name);
