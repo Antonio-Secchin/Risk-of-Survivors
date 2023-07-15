@@ -45,19 +45,19 @@ public class EnemyCombat : MonoBehaviour
             // Ataque especial
             break;
         case 3:
-            playerCombat.AddVelocidadeAtaque(1);
+            playerCombat.AddVelocidadeAtaque(1, "#3B93F7");
             break;
         case 2:
-            playerCombat.AddPulos(2);
+            playerCombat.AddPulos(2, "Pulos", "#C933FF");
             break;
         case 1:
-            playerCombat.AddAlcance(1.2f);
+            playerCombat.AddAlcance(1.2f, "#E4FF33");
             break;
         case 0:
-            playerCombat.AddDano(4);
+            playerCombat.AddDano(4, "#FF3333");
             break;
         default:
-            playerCombat.AddDano(4);
+            playerCombat.AddDano(4, "#FF3333");
             break;
         }
     }
@@ -68,22 +68,22 @@ public class EnemyCombat : MonoBehaviour
         
         switch (melhoria) {
         case 4:
-            playerCombat.AddVelocidadeAtaque(0.5f);
+            playerCombat.AddVelocidadeAtaque(0.5f, "#0969D7");
             break;
         case 3:
             playerCombat.AddVida();
             break;
         case 2:
-            playerCombat.AddPulos(1);
+            playerCombat.AddPulos(1, "Pulo", "#A500E0");
             break;
         case 1:
-            playerCombat.AddAlcance(1.1f);
+            playerCombat.AddAlcance(1.1f, "#C2E000");
             break;
         case 0:
-            playerCombat.AddDano(2);
+            playerCombat.AddDano(2, "#E00000");
             break;
         default:
-            playerCombat.AddDano(2);
+            playerCombat.AddDano(2, "#E00000");
             break;
         }
     }
