@@ -74,10 +74,23 @@ public class PlayerCombat : MonoBehaviour
             
         healthBar.SetHealth(vidaAtual); 
     }
-    public void AddDano (int dano) { danoAtaque += dano; }
-    public void AddAlcance (float mult) { attackRange *= mult; }
-    public void AddVelocidadeAtaque (float vel) { attackRate += vel; }
-    public void AddPulos (int qtd) { playerMove.pulosExtras += qtd; }
+    
+    public void AddDano (int dano) { 
+        danoAtaque += dano; 
+    }
+    
+    public void AddAlcance (float mult) { 
+        attackRange *= mult; 
+    }
+    
+    public void AddVelocidadeAtaque (float vel) { 
+        attackRate += vel; 
+    }
+    
+    public void AddPulos (int qtd) { 
+        playerMove.pulosExtras += qtd; 
+    }
+    
     #endregion
 
     private void Ataque () {
