@@ -17,6 +17,14 @@ public class MainMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// A funcao <c> ComoJogar()</c> carrega a cena que demonstra os controles.
+    /// </summary>
+    public void ComoJogar()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    /// <summary>
     /// A funcao <c> QuitGame()</c> finaliza o jogo e fecha a aplicação.
     /// </summary>
     public void QuitGame()
