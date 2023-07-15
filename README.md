@@ -37,7 +37,9 @@ Se tudo der certo, aparecerá o projeto na aba ***Projects*** do *Unity Hub*. En
 ## Histórico de lançamentos
 
 - Lançamento - versão 1.0
-    + versão de lançamento do jogo com a primeira build feita.
+    + Versão de lançamento do jogo com a primeira build feita.
+- Build 1.1 - versão 1.1
+    + Versão com alguns ajustes, melhorias no cenário, barra de vida adicionada, além de upgrades que o personagem adquire com o tempo.
 
 
 ## Sobre nós
