@@ -110,6 +110,7 @@ MonoBehaviour:
   animator: {fileID: 7554702807663604161}
   playerMove: {fileID: 6092016789202601790}
   healthBar: {fileID: 1651660766738471248, guid: e6b3db6823c6d0a4786c8f9dbcb8c167, type: 3}
+  textoUpgrade: {fileID: 7064732172103048142, guid: 89fbd9004a9d6304bad9986716b74f6b, type: 3}
   attackSoundEffect: {fileID: 0}
   deathSoundEffect: {fileID: 0}
   attackPoint: {fileID: 7488693863450328911}
@@ -121,6 +122,7 @@ MonoBehaviour:
   knockback: 50
   attackRate: 2
   vidaMax: 100
+  vidaAtual: 0
   danoLevado: 10
   defenseRate: 2
 --- !u!212 &950393962857499455

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerCombat : MonoBehaviour
     public Animator animator;
     public PlayerMove playerMove;
     public HealthBar healthBar;
+    [SerializeField] GameObject textoUpgrade;
 
     [SerializeField] private AudioSource attackSoundEffect;
     [SerializeField] private AudioSource deathSoundEffect;
@@ -64,6 +66,21 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
+    void ShowFloatingText (string upgrade, string corHexa) {
+        var textoTransform = Instantiate(textoUpgrade, transform.position, Quaternion.identity, transform);
+        var texto = textoTransform.GetComponent<TextMesh>();
+
+        Debug.Log(corHexa);
+
+        Color cor;
+        ColorUtility.TryParseHtmlString(corHexa, out cor);
+
+        Debug.Log(cor);
+
+        texto.text = upgrade;
+        texto.color = cor;
+    }
+
     #region upgrades
     // Não preciso de parâmetro, pois nunca vai ser chamada pela DaMelhoriaEspecial
     public void AddVida() { 
@@ -73,24 +90,29 @@ public class PlayerCombat : MonoBehaviour
             vidaAtual += 20;
             
         healthBar.SetHealth(vidaAtual); 
+        ShowFloatingText("Vida", "#00E083");
     }
-    
-    public void AddDano (int dano) { 
+
+    public void AddDano (int dano, string cor) { 
         danoAtaque += dano; 
+        ShowFloatingText("Dano", cor);
     }
-    
-    public void AddAlcance (float mult) { 
+
+    public void AddAlcance (float mult, string cor) { 
         attackRange *= mult; 
+        ShowFloatingText("Alcance", cor);
     }
-    
-    public void AddVelocidadeAtaque (float vel) { 
+
+    public void AddVelocidadeAtaque (float vel, string cor) { 
         attackRate += vel; 
+        ShowFloatingText("Velocidade Ataque", cor);
     }
-    
-    public void AddPulos (int qtd) { 
+
+    public void AddPulos (int qtd, string nome, string cor) { 
         playerMove.pulosExtras += qtd; 
+        ShowFloatingText(nome, cor);
     }
-    
+
     #endregion
 
     private void Ataque () {
