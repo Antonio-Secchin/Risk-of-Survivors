@@ -92,7 +92,7 @@ public class EnemyCombat : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         // Chance de ele dar uma melhoria para o jogador
-        if (Random.Range(0, 10) == 1) {
+        if (Random.Range(0, 9) == 1) {
             if (playerCombat.vidaAtual < 100)
                 DaMelhoria();
             else
