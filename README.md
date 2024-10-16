@@ -7,7 +7,7 @@ Risk of Survivors é um platformer 2D com elementos de roguelike. O jogador é c
 ![Screenshot do jogo](/Imagens/RiskOfSurv_Capa.JPG)
 
 ## Instalação
-Para jogar, baixe a pasta RiskOfSurvivors.zip, disponibilizada através da release mais recente, faça a descompactação e execute o arquivo "RiskOfSurv".
+Para jogar, baixe a pasta Build_1.1.zip, disponibilizada através da release mais recente, faça a descompactação e execute o arquivo "RiskOfSurv".
 
 ## Configuração para Desenvolvimento
 
